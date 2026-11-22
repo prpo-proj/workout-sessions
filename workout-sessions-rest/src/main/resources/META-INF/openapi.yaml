@@ -93,11 +93,7 @@ paths:
                 $ref: '#/components/schemas/Problem'
 
         '401':
-          description: "UNAUTHENTICATED: authentication is missing or invalid."
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problem'
+          $ref: '#/components/responses/Unauthenticated'
 
     
     post:
@@ -121,11 +117,7 @@ paths:
                 $ref: '#/components/schemas/Session'
 
         '401':
-          description: "UNAUTHENTICATED: authentication is missing or invalid."
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problem'
+          $ref: '#/components/responses/Unauthenticated'
 
         '409':
           description: "ACTIVE_SESSION_EXISTS: the user already has an active session."
@@ -162,18 +154,10 @@ paths:
                 $ref: '#/components/schemas/SessionDetails'
 
         '401':
-          description: "UNAUTHENTICATED: authentication is missing or invalid."
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problem'
+          $ref: '#/components/responses/Unauthenticated'
 
         '404':
-          description: "RESOURCE_NOT_FOUND: session does not exist or belongs to another user."
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problem'
+          $ref: '#/components/responses/ResourceNotFound'
 
     patch:
       tags:
@@ -200,25 +184,13 @@ paths:
                 $ref: '#/components/schemas/Session'
 
         '400':
-          description: "MALFORMED_JSON: malformed JSON."
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problem'
+          $ref: '#/components/responses/MalformedJson'
 
         '401':
-          description: "UNAUTHENTICATED: authentication is missing or invalid."
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problem'
+          $ref: '#/components/responses/Unauthenticated'
 
         '404':
-          description: "RESOURCE_NOT_FOUND: session does not exist or belongs to another user."
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problem'
+          $ref: '#/components/responses/ResourceNotFound'
 
         '409':
           description: "SESSION_ALREADY_COMPLETED: session is already completed. SESSION_HAS_NO_SETS: session contains no logged sets."
@@ -228,11 +200,7 @@ paths:
                 $ref: '#/components/schemas/Problem'
 
         '415':
-          description: "UNSUPPORTED_MEDIA_TYPE: the request Content-Type is not supported by this endpoint."
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problem'
+          $ref: '#/components/responses/UnsupportedMediaType'
 
         '422':
           description: "VALIDATION_FAILED: wrong JSON structure, unknown fields, or missing or invalid status."
@@ -255,18 +223,10 @@ paths:
           description: "Session and its contents deleted."
         
         '401':
-          description: "UNAUTHENTICATED: authentication is missing or invalid."
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problem'
+          $ref: '#/components/responses/Unauthenticated'
 
         '404':
-          description: "RESOURCE_NOT_FOUND: session does not exist or belongs to another user."
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problem'
+          $ref: '#/components/responses/ResourceNotFound'
 
   /sessions/{sessionId}/exercises:
     parameters:
@@ -306,25 +266,13 @@ paths:
                 $ref: '#/components/schemas/Exercise'
         
         '400':
-          description: "MALFORMED_JSON: malformed JSON."
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problem'
+          $ref: '#/components/responses/MalformedJson'
 
         '401':
-          description: "UNAUTHENTICATED: authentication is missing or invalid."
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problem'
+          $ref: '#/components/responses/Unauthenticated'
 
         '404':
-          description: "RESOURCE_NOT_FOUND: session does not exist or belongs to another user."
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problem'
+          $ref: '#/components/responses/ResourceNotFound'
 
         '409':
           description: "SESSION_ALREADY_COMPLETED: session is already completed. EXERCISE_ALREADY_ADDED: the same catalogue exercise is already in the session."
@@ -334,11 +282,7 @@ paths:
                 $ref: '#/components/schemas/Problem'
 
         '415':
-          description: "UNSUPPORTED_MEDIA_TYPE: the request Content-Type is not supported by this endpoint."
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problem'
+          $ref: '#/components/responses/UnsupportedMediaType'
 
         '422':
           description: "VALIDATION_FAILED: wrong JSON structure, unknown fields, missing or invalid catalogueExerciseId, or referenced catalogue exercise does not exist."
@@ -386,18 +330,10 @@ paths:
           description: "Exercise entry and its sets deleted."
         
         '401':
-          description: "UNAUTHENTICATED: authentication is missing or invalid."
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problem'
+          $ref: '#/components/responses/Unauthenticated'
 
         '404':
-          description: "RESOURCE_NOT_FOUND: a referenced resource is missing, inaccessible, or does not belong to the parent specified in the URL."
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problem'
+          $ref: '#/components/responses/ResourceNotFound'
 
   /session-exercises/{entryId}/sets:
     parameters:
@@ -437,25 +373,13 @@ paths:
                 $ref: '#/components/schemas/Set'
 
         '400':
-          description: "MALFORMED_JSON: malformed JSON."
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problem'
+          $ref: '#/components/responses/MalformedJson'
 
         '401':
-          description: "UNAUTHENTICATED: authentication is missing or invalid."
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problem'
+          $ref: '#/components/responses/Unauthenticated'
 
         '404':
-          description: "RESOURCE_NOT_FOUND: session or exercise entry does not exist or belongs to another user."
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problem'
+          $ref: '#/components/responses/ResourceNotFound'
 
         '409':
           description: "SESSION_ALREADY_COMPLETED: session is already completed."
@@ -465,11 +389,7 @@ paths:
                 $ref: '#/components/schemas/Problem'
 
         '415':
-          description: "UNSUPPORTED_MEDIA_TYPE: the request Content-Type is not supported by this endpoint."
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problem'
+          $ref: '#/components/responses/UnsupportedMediaType'
 
         '422':
           description: "VALIDATION_FAILED: wrong JSON structure, unknown fields, or missing or invalid weightKg or reps."
@@ -521,32 +441,16 @@ paths:
                 $ref: '#/components/schemas/Set'
 
         '400':
-          description: "MALFORMED_JSON: malformed JSON."
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problem'
+          $ref: '#/components/responses/MalformedJson'
 
         '401':
-          description: "UNAUTHENTICATED: authentication is missing or invalid."
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problem'
+          $ref: '#/components/responses/Unauthenticated'
 
         '404':
-          description: "RESOURCE_NOT_FOUND: a referenced resource is missing, inaccessible, or does not belong to the parent specified in the URL."
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problem'
+          $ref: '#/components/responses/ResourceNotFound'
 
         '415':
-          description: "UNSUPPORTED_MEDIA_TYPE: the request Content-Type is not supported by this endpoint."
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problem'
+          $ref: '#/components/responses/UnsupportedMediaType'
 
         '422':
           description: "VALIDATION_FAILED: wrong JSON structure, unknown fields, neither editable field supplied, or an invalid supplied value."
@@ -569,18 +473,10 @@ paths:
           description: "Set deleted."
         
         '401':
-          description: "UNAUTHENTICATED: authentication is missing or invalid."
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problem'
+          $ref: '#/components/responses/Unauthenticated'
 
         '404':
-          description: "RESOURCE_NOT_FOUND: a referenced resource is missing, inaccessible, or does not belong to the parent specified in the URL."
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problem'
+          $ref: '#/components/responses/ResourceNotFound'
 
 components:
   schemas:
@@ -821,6 +717,35 @@ components:
                 type: string
       
       additionalProperties: true
+
+  responses:
+    MalformedJson:
+      description: "MALFORMED_JSON: malformed JSON."
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+
+    Unauthenticated:
+      description: "UNAUTHENTICATED: authentication is missing or invalid."
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+
+    ResourceNotFound:
+      description: "RESOURCE_NOT_FOUND: A resource identified in the URL does not exist, belongs to another user, or does not belong to the parent specified in the URL."
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+
+    UnsupportedMediaType:
+      description: "UNSUPPORTED_MEDIA_TYPE: The request Content-Type is not supported by this endpoint."
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
 
   headers:
     Location:
